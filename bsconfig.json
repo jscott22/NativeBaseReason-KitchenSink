@@ -1,0 +1,12 @@
+{
+  "name": "rn-tester",
+  "reason": {
+      "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-react-native", "reason-react", "reason-reroute", "bs-native-base"],
+  "sources": [{
+      "dir": "re"
+  }],
+  "refmt": 3
+}
