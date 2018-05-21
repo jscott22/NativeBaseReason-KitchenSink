@@ -1,6 +1,5 @@
 open BsReactNative;
 open Navigation;
-open BsNativeBase;
 
 type state = {
   ready: bool,
@@ -30,13 +29,15 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
   initialState: () => {ready: true},
   reducer: (action, _state) =>
     switch(action) {
-    | SetReady => ReasonReact.Update({ready: true})
+    | SetReady => ReasonReact.Update({ready: true}) 
     },
   render: self => {
-    <StackNavigator.Screen navigation headerTitle="Welcome">
+    <StackNavigator.Screen navigation headerLeft={(_headerProps: Header.props) => <BsNativeBase.Icon name="ios-menu" />}>
     ...(
       () => 
+      BsNativeBase.(
         if(self.state.ready) {
+          
           <StyleProvider>
           <Container style=styles##imageContainer>
               <StatusBar barStyle=`lightContent />
@@ -51,6 +52,7 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
             <Text>{ReasonReact.string("LOADING!!!")}</Text>
           </View>
         })
+      )
     </StackNavigator.Screen>
   }
 };

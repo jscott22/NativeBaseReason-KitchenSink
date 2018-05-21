@@ -5,7 +5,7 @@ let component = ReasonReact.statelessComponent("Header");
 let make = (~navigation, _children) => {
 ...component,
 render: _self =>
-<StackNavigator.Screen navigation headerTitle="Header">
+<StackNavigator.Screen navigation headerTitle="Header" headerLeft={(_headerProps: Header.props) => <View><Text>{ReasonReact.string("Left")}</Text></View>}>
 ...(
   () => 
 

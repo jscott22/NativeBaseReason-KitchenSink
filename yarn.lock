@@ -1397,7 +1397,7 @@ browser-resolve@^1.11.2:
 
 bs-native-base@jscott22/bs-native-base#master:
   version "0.1.1"
-  resolved "https://codeload.github.com/jscott22/bs-native-base/tar.gz/f18a9de7f4e22ce7e59d463fcfb01526a0309696"
+  resolved "https://codeload.github.com/jscott22/bs-native-base/tar.gz/380eeab4d1b68d8120e04a37aa4e369fd96fc97f"
 
 bs-platform@^3.0.0:
   version "3.0.0"
