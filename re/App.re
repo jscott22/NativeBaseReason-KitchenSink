@@ -25,7 +25,9 @@ module Main = {
         ...(
              (~currentRoute, ~navigation) =>
                <BsNativeBase.Drawer
+                 drawerType=Overlay
                  drawerOpen=self.state.drawerOpen
+                 content={<Sidebar />}
                  onClose=(() => self.send(HideDrawer))>
                  (
                    switch (currentRoute) {
