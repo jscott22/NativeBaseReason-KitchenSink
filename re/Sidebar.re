@@ -5,7 +5,15 @@ let component = ReasonReact.statelessComponent("Sidebar");
 let styles =
   StyleSheet.create(
     Style.(
-      {"drawer": style([flex(1.), backgroundColor(String("white"))])}
+      {
+        "drawer": style([flex(1.), backgroundColor(String("white"))]),
+        "icon":
+          style([
+            color(String("#777")),
+            fontSize(Float(26.)),
+            width(Pt(30.)),
+          ]),
+      }
     ),
   );
 
@@ -197,8 +205,14 @@ let make = _children => {
           <ListView
             dataArray
             renderRow=(
-              (data: route) =>
+              data =>
                 <ListItem>
+                  <Icon
+                    iconType=Ionicons
+                    active=true
+                    name=data.icon
+                    style=styles##icon
+                  />
                   <Text> (ReasonReact.string(data.name)) </Text>
                 </ListItem>
             )

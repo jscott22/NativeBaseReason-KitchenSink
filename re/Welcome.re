@@ -30,7 +30,7 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
       headerLeft=(
         (_headerProps: Header.props) =>
           <BsNativeBase.Button transparent=true onPress=toggleDrawer>
-            <BsNativeBase.Icon name="ios-menu" />
+            <BsNativeBase.Icon iconType=Ionicons name="ios-menu" />
           </BsNativeBase.Button>
       )>
       ...(
