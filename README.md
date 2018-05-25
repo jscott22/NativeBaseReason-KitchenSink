@@ -1,4 +1,4 @@
-# simple reroute-native example
+# Native Base Kitchen Sink demo rewritten in Reason using bs-native-base
 
 ## How to run
 1. ```yarn install``` - install dependencies
