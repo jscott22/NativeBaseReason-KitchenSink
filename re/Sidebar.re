@@ -1,5 +1,7 @@
 open BsReactNative;
 
+open Navigation;
+
 let component = ReasonReact.statelessComponent("Sidebar");
 
 let styles =
@@ -13,13 +15,31 @@ let styles =
             fontSize(Float(26.)),
             width(Pt(30.)),
           ]),
+        "badgeText":
+          style([
+            fontSize(
+              Platform.equals(Platform.Android) ? Float(11.) : Float(13.),
+            ),
+            fontWeight(`_400),
+            textAlign(Center),
+            marginTop(
+              Platform.equals(Platform.Android) ? Pt(-3.) : Pt(0.),
+            ),
+            color(String("#fff")),
+          ]),
+        "text":
+          style([
+            fontWeight(Platform.equals(Platform.Android) ? `_400 : `_500),
+            fontSize(Float(16.)),
+            marginLeft(Pt(20.)),
+          ]),
       }
     ),
   );
 
 type route = {
   name: string,
-  route: string,
+  route: Route.route,
   icon: string,
   bg: string,
   types: option(string),
@@ -28,175 +48,175 @@ type route = {
 let dataArray = [|
   {
     name: "Anatomy",
-    route: "Anatomy",
+    route: Route.Anatomy,
     icon: "phone-portrait",
     bg: "#C5F442",
     types: None,
   },
   {
     name: "Actionsheet",
-    route: "Actionsheet",
+    route: Route.Actionsheet,
     icon: "easel",
     bg: "#C5F442",
     types: None,
   },
   {
     name: "Header",
-    route: "Header",
+    route: Route.Header,
     icon: "phone-portrait",
     bg: "#477EEA",
     types: None,
   },
   {
     name: "Footer",
-    route: "Footer",
+    route: Route.Footer,
     icon: "phone-portrait",
     bg: "#DA4437",
     types: Some("4"),
   },
   {
     name: "Badge",
-    route: "NHBadge",
+    route: Route.NHBadge,
     icon: "notifications",
     bg: "#4DCAE0",
     types: None,
   },
   {
     name: "Button",
-    route: "NHButton",
+    route: Route.NHButton,
     icon: "radio-button-off",
     bg: "#1EBC7C",
     types: Some("9"),
   },
   {
     name: "Card",
-    route: "NHCard",
+    route: Route.NHCard,
     icon: "keypad",
     bg: "#B89EF5",
     types: Some("8"),
   },
   {
     name: "Check Box",
-    route: "NHCheckbox",
+    route: Route.NHCheckbox,
     icon: "checkmark-circle",
     bg: "#EB6B23",
     types: None,
   },
   {
     name: "Deck Swiper",
-    route: "NHDeckSwiper",
+    route: Route.NHDeckSwiper,
     icon: "swap",
     bg: "#3591FA",
     types: Some("2"),
   },
   {
     name: "Fab",
-    route: "NHFab",
+    route: Route.NHFab,
     icon: "help-buoy",
     bg: "#EF6092",
     types: Some("2"),
   },
   {
     name: "Form & Inputs",
-    route: "NHForm",
+    route: Route.NHForm,
     icon: "call",
     bg: "#EFB406",
     types: Some("12"),
   },
   {
     name: "Icon",
-    route: "NHIcon",
+    route: Route.NHIcon,
     icon: "information-circle",
     bg: "#bfe9ea",
     types: Some("4"),
   },
   {
     name: "Layout",
-    route: "NHLayout",
+    route: Route.NHLayout,
     icon: "grid",
     bg: "#9F897C",
     types: Some("5"),
   },
   {
     name: "List",
-    route: "NHList",
+    route: Route.NHList,
     icon: "lock",
     bg: "#5DCEE2",
     types: Some("8"),
   },
   {
     name: "ListSwipe",
-    route: "ListSwipe",
+    route: Route.ListSwipe,
     icon: "swap",
     bg: "#C5F442",
     types: Some("3"),
   },
   {
     name: "Picker",
-    route: "NHPicker",
+    route: Route.NHPicker,
     icon: "arrow-dropdown",
     bg: "#F50C75",
     types: None,
   },
   {
     name: "Radio",
-    route: "NHRadio",
+    route: Route.NHRadio,
     icon: "radio-button-on",
     bg: "#6FEA90",
     types: None,
   },
   {
     name: "SearchBar",
-    route: "NHSearchbar",
+    route: Route.NHSearchbar,
     icon: "search",
     bg: "#29783A2C6B",
     types: None,
   },
   {
     name: "Segment",
-    route: "Segment",
+    route: Route.Segment,
     icon: "menu",
     bg: "#0A2C6B",
     types: Some("2"),
   },
   {
     name: "Spinner",
-    route: "NHSpinner",
+    route: Route.NHSpinner,
     icon: "navigate",
     bg: "#BE6F50",
     types: None,
   },
   {
     name: "Tabs",
-    route: "NHTab",
+    route: Route.NHTab,
     icon: "home",
     bg: "#AB6AED",
     types: Some("3"),
   },
   {
     name: "Thumbnail",
-    route: "NHThumbnail",
+    route: Route.NHThumbnail,
     icon: "image",
     bg: "#cc0000",
     types: Some("2"),
   },
   {
     name: "Toast",
-    route: "NHToast",
+    route: Route.NHToast,
     icon: "albums",
     bg: "#C5F442",
     types: Some("6"),
   },
   {
     name: "Typography",
-    route: "NHTypography",
+    route: Route.NHTypography,
     icon: "paper",
     bg: "#48525AB6AED",
     types: None,
   },
 |];
 
-let make = _children => {
+let make = (~navigation, _children) => {
   ...component,
   render: _self =>
     BsNativeBase.(
@@ -206,14 +226,39 @@ let make = _children => {
             dataArray
             renderRow=(
               data =>
-                <ListItem>
-                  <Icon
-                    iconType=Ionicons
-                    active=true
-                    name=data.icon
-                    style=styles##icon
-                  />
-                  <Text> (ReasonReact.string(data.name)) </Text>
+                <ListItem button=true noBorder=true>
+                  <Left>
+                    <Icon
+                      iconType=Ionicons
+                      active=true
+                      name=data.icon
+                      style=styles##icon
+                    />
+                    <Text style=styles##text>
+                      (ReasonReact.string(data.name))
+                    </Text>
+                  </Left>
+                  (
+                    switch (data.types) {
+                    | Some(types) =>
+                      <Right style=Style.(style([flex(1.)]))>
+                        <Badge
+                          style=Style.(
+                                  style([
+                                    borderRadius(3.),
+                                    height(Pt(25.)),
+                                    width(Pt(72.)),
+                                    backgroundColor(String(data.bg)),
+                                  ])
+                                )>
+                          <Text style=styles##badgeText>
+                            (ReasonReact.string(types ++ " Types"))
+                          </Text>
+                        </Badge>
+                      </Right>
+                    | None => ReasonReact.null
+                    }
+                  )
                 </ListItem>
             )
           />
