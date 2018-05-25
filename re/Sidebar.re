@@ -54,13 +54,6 @@ let dataArray = [|
     types: None,
   },
   {
-    name: "Actionsheet",
-    route: Route.Actionsheet,
-    icon: "easel",
-    bg: "#C5F442",
-    types: None,
-  },
-  {
     name: "Header",
     route: Route.Header,
     icon: "phone-portrait",
@@ -101,13 +94,6 @@ let dataArray = [|
     icon: "checkmark-circle",
     bg: "#EB6B23",
     types: None,
-  },
-  {
-    name: "Deck Swiper",
-    route: Route.NHDeckSwiper,
-    icon: "swap",
-    bg: "#3591FA",
-    types: Some("2"),
   },
   {
     name: "Fab",
@@ -216,7 +202,7 @@ let dataArray = [|
   },
 |];
 
-let make = (~navigation, _children) => {
+let make = (~navigation: StackNavigator.navigation, ~hideDrawer, _children) => {
   ...component,
   render: _self =>
     BsNativeBase.(
@@ -226,7 +212,15 @@ let make = (~navigation, _children) => {
             dataArray
             renderRow=(
               data =>
-                <ListItem button=true noBorder=true>
+                <ListItem
+                  button=true
+                  noBorder=true
+                  onPress=(
+                    () => {
+                      hideDrawer();
+                      navigation.push(data.route);
+                    }
+                  )>
                   <Left>
                     <Icon
                       iconType=Ionicons

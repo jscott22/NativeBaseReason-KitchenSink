@@ -44,7 +44,7 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
                      source=(
                        Required(
                          Packager.require(
-                           "../../../assets/launchscreen-bg.png",
+                           "../../../../assets/launchscreen-bg.png",
                          ),
                        )
                      )
@@ -55,7 +55,7 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
                        source=(
                          Required(
                            Packager.require(
-                             "../../../assets/logo-kitchen-sink.png",
+                             "../../../../assets/logo-kitchen-sink.png",
                            ),
                          )
                        )

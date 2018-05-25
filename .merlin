@@ -15,4 +15,6 @@ S /Users/jay/reason/rn-tester/node_modules/bs-native-base/lib/ocaml
 B /Users/jay/reason/rn-tester/node_modules/bs-native-base/lib/ocaml
 S re
 B lib/bs/re
+S re/screens
+B lib/bs/re/screens
 ####BSB GENERATED: NO EDIT}

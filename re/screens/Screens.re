@@ -4,8 +4,6 @@ module Header = Screens__Header;
 
 module Anatomy = Screens__Anatomy;
 
-module Actionsheet = Screens__Actionsheet;
-
 module Footer = Screens__Footer;
 
 module NHBadge = Screens__NHBadge;
@@ -15,8 +13,6 @@ module NHButton = Screens__NHButton;
 module NHCard = Screens__NHCard;
 
 module NHCheckbox = Screens__NHCheckbox;
-
-module NHDeckSwiper = Screens__NHDeckSwiper;
 
 module NHFab = Screens__NHFab;
 

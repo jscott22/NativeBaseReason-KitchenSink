@@ -27,7 +27,12 @@ module Main = {
                <BsNativeBase.Drawer
                  drawerType=Overlay
                  drawerOpen=self.state.drawerOpen
-                 content={<Sidebar navigation />}
+                 content={
+                   <Sidebar
+                     navigation
+                     hideDrawer=(() => self.send(HideDrawer))
+                   />
+                 }
                  onClose=(() => self.send(HideDrawer))>
                  (
                    switch (currentRoute) {
@@ -43,16 +48,6 @@ module Main = {
                      />
                    | Route.Anatomy =>
                      <Screens.Anatomy
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Actionsheet =>
-                     <Screens.Actionsheet
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Header =>
-                     <Screens.Header
                        navigation
                        toggleDrawer=(() => self.send(ToggleDrawer))
                      />
@@ -78,11 +73,6 @@ module Main = {
                      />
                    | Route.NHCheckbox =>
                      <Screens.NHCheckbox
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHDeckSwiper =>
-                     <Screens.NHDeckSwiper
                        navigation
                        toggleDrawer=(() => self.send(ToggleDrawer))
                      />
@@ -158,11 +148,6 @@ module Main = {
                      />
                    | Route.NHTypography =>
                      <Screens.NHTypography
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Welcome =>
-                     <Screens.Welcome
                        navigation
                        toggleDrawer=(() => self.send(ToggleDrawer))
                      />

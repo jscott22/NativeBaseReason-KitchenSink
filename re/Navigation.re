@@ -1,14 +1,12 @@
 module Route = {
   type route =
     | Anatomy
-    | Actionsheet
     | Header
     | Footer
     | NHBadge
     | NHButton
     | NHCard
     | NHCheckbox
-    | NHDeckSwiper
     | NHFab
     | NHForm
     | NHIcon
