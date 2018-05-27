@@ -43,3 +43,5 @@ module NHThumbnail = Screens__NHThumbnail;
 module NHToast = Screens__NHToast;
 
 module NHTypography = Screens__NHTypography;
+
+module ButtonDefault = Screens__Button__Default;

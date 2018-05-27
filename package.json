@@ -12,6 +12,7 @@
     "bs-native-base": "jscott22/bs-native-base#master",
     "bs-platform": "^3.0.0",
     "bs-react-native": "^0.7.0-beta",
+    "color": "^3.0.0",
     "native-base": "^2.4.5",
     "react": "16.3.1",
     "react-native": "0.55.3",

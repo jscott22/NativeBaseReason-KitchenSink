@@ -11,14 +11,16 @@ let make = (~navigation, ~toggleDrawer, _children) => {
       navigation
       headerTitle="Header"
       headerLeft=(
-        (_headerProps: Header.props) =>
-          <BsNativeBase.Button transparent=true onPress=toggleDrawer>
-            <BsNativeBase.Icon iconType=Ionicons name="ios-menu" />
-          </BsNativeBase.Button>
+        _headerProps =>
+        BsNativeBase.(
+          <Button transparent=true onPress=toggleDrawer>
+            <Icon iconType=Ionicons name="ios-menu" />
+          </Button>
+        )
       )>
       ...(
            () =>
-             <View> <Text> (ReasonReact.string("LOADING!!!")) </Text> </View>
+           <View> <Text> (ReasonReact.string("Anatomy")) </Text> </View>
          )
     </StackNavigator.Screen>,
 };

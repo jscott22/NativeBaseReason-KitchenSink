@@ -38,28 +38,16 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
              BsNativeBase.(
                <StyleProvider>
                  <Container style=styles##imageContainer>
+                   <Header>
+                     <Body>
+                       <Text> (ReasonReact.string("Header!")) </Text>
+                     </Body>
+                   </Header>
                    <StatusBar barStyle=`lightContent />
-                   <ImageBackground
-                     style=styles##imageContainer
-                     source=(
-                       Required(
-                         Packager.require(
-                           "../../../assets/launchscreen-bg.png",
-                         ),
-                       )
-                     )
-                   />
-                   <View style=styles##logoContainer>
-                     <Image
-                       style=styles##logo
-                       source=(
-                         Required(
-                           Packager.require(
-                             "../../../assets/logo-kitchen-sink.png",
-                           ),
-                         )
-                       )
-                     />
+                   <View>
+                     <Button onPress=(() => toggleDrawer())>
+                       <Text> (ReasonReact.string("Let's Go!")) </Text>
+                     </Button>
                    </View>
                  </Container>
                </StyleProvider>

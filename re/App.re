@@ -1,5 +1,13 @@
 open Navigation;
 
+open BsReactNative;
+
+[@bs.module "../../../theme/components/index"]
+external getTheme : Js.t('a) => Js.t('b) = "default";
+
+[@bs.module "../../../theme/variables/commonColor"]
+external variables : Js.t('a) = "default";
+
 type state = {drawerOpen: bool};
 
 type action =
@@ -21,141 +29,147 @@ module Main = {
       };
     },
     render: self =>
-      <StackNavigator initialState=[|Route.Welcome|]>
-        ...(
-             (~currentRoute, ~navigation) =>
-               <BsNativeBase.Drawer
-                 drawerType=Overlay
-                 drawerOpen=self.state.drawerOpen
-                 content={
-                   <Sidebar
-                     navigation
-                     hideDrawer=(() => self.send(HideDrawer))
-                   />
-                 }
-                 onClose=(() => self.send(HideDrawer))>
-                 (
-                   switch (currentRoute) {
-                   | Route.Welcome =>
-                     <Screens.Welcome
+      <BsNativeBase.StyleProvider style=(getTheme(variables))>
+        <StackNavigator
+          initialState=[|Route.Welcome|] headerComponent=Foo.make>
+          ...(
+               (~currentRoute, ~navigation) =>
+                 <BsNativeBase.Drawer
+                   drawerType=Overlay
+                   drawerOpen=self.state.drawerOpen
+                   content={
+                     <Sidebar
                        navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Header =>
-                     <Screens.Header
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Anatomy =>
-                     <Screens.Anatomy
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Footer =>
-                     <Screens.Footer
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHBadge =>
-                     <Screens.NHBadge
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHButton =>
-                     <Screens.NHButton
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHCard =>
-                     <Screens.NHCard
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHCheckbox =>
-                     <Screens.NHCheckbox
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHFab =>
-                     <Screens.NHFab
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHForm =>
-                     <Screens.NHForm
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHIcon =>
-                     <Screens.NHIcon
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHLayout =>
-                     <Screens.NHLayout
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHList =>
-                     <Screens.NHList
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.ListSwipe =>
-                     <Screens.ListSwipe
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHPicker =>
-                     <Screens.NHPicker
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHRadio =>
-                     <Screens.NHRadio
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHSearchbar =>
-                     <Screens.NHSearchbar
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.Segment =>
-                     <Screens.Segment
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHSpinner =>
-                     <Screens.NHSpinner
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHTab =>
-                     <Screens.NHTab
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHThumbnail =>
-                     <Screens.NHThumbnail
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHToast =>
-                     <Screens.NHToast
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
-                     />
-                   | Route.NHTypography =>
-                     <Screens.NHTypography
-                       navigation
-                       toggleDrawer=(() => self.send(ToggleDrawer))
+                       hideDrawer=(() => self.send(HideDrawer))
                      />
                    }
-                 )
-               </BsNativeBase.Drawer>
-           )
-      </StackNavigator>,
+                   onClose=(() => self.send(HideDrawer))>
+                   (
+                     switch (currentRoute) {
+                     | Route.Welcome =>
+                       <Screens.Welcome
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.Header =>
+                       <Screens.Header
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.Anatomy =>
+                       <Screens.Anatomy
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.Footer =>
+                       <Screens.Footer
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHBadge =>
+                       <Screens.NHBadge
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHButton =>
+                       <Screens.NHButton
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHCard =>
+                       <Screens.NHCard
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHCheckbox =>
+                       <Screens.NHCheckbox
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHFab =>
+                       <Screens.NHFab
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHForm =>
+                       <Screens.NHForm
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHIcon =>
+                       <Screens.NHIcon
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHLayout =>
+                       <Screens.NHLayout
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHList =>
+                       <Screens.NHList
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.ListSwipe =>
+                       <Screens.ListSwipe
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHPicker =>
+                       <Screens.NHPicker
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHRadio =>
+                       <Screens.NHRadio
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHSearchbar =>
+                       <Screens.NHSearchbar
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.Segment =>
+                       <Screens.Segment
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHSpinner =>
+                       <Screens.NHSpinner
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHTab =>
+                       <Screens.NHTab
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHThumbnail =>
+                       <Screens.NHThumbnail
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHToast =>
+                       <Screens.NHToast
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.NHTypography =>
+                       <Screens.NHTypography
+                         navigation
+                         toggleDrawer=(() => self.send(ToggleDrawer))
+                       />
+                     | Route.ButtonDefault =>
+                       Js.log("Here");
+                       <Screens.ButtonDefault navigation />;
+                     }
+                   )
+                 </BsNativeBase.Drawer>
+             )
+        </StackNavigator>
+      </BsNativeBase.StyleProvider>,
   };
 };
 

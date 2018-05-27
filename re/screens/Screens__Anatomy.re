@@ -16,6 +16,22 @@ let make = (~navigation, ~toggleDrawer, _children) => {
             <BsNativeBase.Icon iconType=Ionicons name="ios-menu" />
           </BsNativeBase.Button>
       )>
-      ...(() => <View> <Text> (ReasonReact.string("Anatomy")) </Text> </View>)
+      ...(
+           () =>
+             BsNativeBase.(
+               <Container>
+                 <Content padder=true>
+                   <Text> (ReasonReact.string("Content goes here!!")) </Text>
+                 </Content>
+                 <Footer>
+                   <FooterTab>
+                     <Button active=true full=true>
+                       <Text> (ReasonReact.string("Footer!!!")) </Text>
+                     </Button>
+                   </FooterTab>
+                 </Footer>
+               </Container>
+             )
+         )
     </StackNavigator.Screen>,
 };

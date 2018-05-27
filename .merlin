@@ -17,4 +17,6 @@ S re
 B lib/bs/re
 S re/screens
 B lib/bs/re/screens
+S re/screens/button
+B lib/bs/re/screens/button
 ####BSB GENERATED: NO EDIT}

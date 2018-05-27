@@ -16,6 +16,13 @@ let styles =
             left(Pt(40.)),
             top(Pt(35.)),
           ]),
+        "text":
+          style([
+            color(String("#D8D8D8")),
+            bottom(Pt(6.)),
+            marginTop(Pt(5.)),
+          ]),
+        "spacer": style([marginTop(Pt(8.))]),
       }
     ),
   );
@@ -36,21 +43,19 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
       ...(
            () =>
              BsNativeBase.(
-               <StyleProvider>
-                 <Container style=styles##imageContainer>
-                   <StatusBar barStyle=`lightContent />
-                   <ImageBackground
-                     style=styles##imageContainer
-                     source=(
-                       Required(
-                         Packager.require(
-                           "../../../../assets/launchscreen-bg.png",
-                         ),
-                       )
+               <Container style=styles##imageContainer>
+                 <StatusBar barStyle=`lightContent />
+                 <ImageBackground
+                   style=styles##imageContainer
+                   source=(
+                     Required(
+                       Packager.require(
+                         "../../../../assets/launchscreen-bg.png",
+                       ),
                      )
-                   />
+                   )>
                    <View style=styles##logoContainer>
-                     <Image
+                     <ImageBackground
                        style=styles##logo
                        source=(
                          Required(
@@ -61,8 +66,37 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
                        )
                      />
                    </View>
-                 </Container>
-               </StyleProvider>
+                   <View
+                     style=Style.(
+                             style([
+                               alignItems(Center),
+                               marginBottom(Pt(50.)),
+                               backgroundColor(String("transparent")),
+                             ])
+                           )>
+                     <H3 style=styles##text>
+                       (ReasonReact.string("App to showcase"))
+                     </H3>
+                     <View style=styles##spacer />
+                     <H3 style=styles##text>
+                       (ReasonReact.string("NativeBase components"))
+                     </H3>
+                     <View style=styles##spacer />
+                   </View>
+                   <View style=Style.(style([marginBottom(Pt(80.))]))>
+                     <Button
+                       style=Style.(
+                               style([
+                                 backgroundColor(String("#6FAF98")),
+                                 alignSelf(Center),
+                               ])
+                             )
+                       onPress=(() => toggleDrawer())>
+                       <Text> (ReasonReact.string("Let's Go!")) </Text>
+                     </Button>
+                   </View>
+                 </ImageBackground>
+               </Container>
              )
          )
     </StackNavigator.Screen>,

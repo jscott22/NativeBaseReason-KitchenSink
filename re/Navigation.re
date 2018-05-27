@@ -22,7 +22,8 @@ module Route = {
     | NHThumbnail
     | NHToast
     | NHTypography
-    | Welcome;
+    | Welcome
+    | ButtonDefault;
 };
 
 include ReRoute.CreateNavigation(Route);
