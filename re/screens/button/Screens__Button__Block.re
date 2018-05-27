@@ -6,7 +6,7 @@ open BsNativeBase;
 
 module Button = BsNativeBase.Button;
 
-let component = ReasonReact.statelessComponent("ButtonRounded");
+let component = ReasonReact.statelessComponent("ButtonBlock");
 
 let make = (~navigation: StackNavigator.navigation, _children) => {
   ...component,
@@ -22,9 +22,7 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
                      <Icon name="arrow-back" />
                    </Button>
                  </Left>
-                 <Body>
-                   <Title> (ReasonReact.string("Rounded")) </Title>
-                 </Body>
+                 <Body> <Title> (ReasonReact.string("Block")) </Title> </Body>
                  <Right />
                </Header>
                <Content
@@ -35,29 +33,25 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
                            padding(Pt(20.)),
                          ])
                        )>
-                 <Button rounded=true light=true style=GlobalStyle.style##mb15>
+                 <Button block=true light=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Light")) </Text>
                  </Button>
-                 <Button rounded=true info=true style=GlobalStyle.style##mb15>
+                 <Button block=true info=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Info")) </Text>
                  </Button>
-                 <Button
-                   rounded=true primary=true style=GlobalStyle.style##mb15>
+                 <Button block=true primary=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Primary")) </Text>
                  </Button>
-                 <Button
-                   rounded=true success=true style=GlobalStyle.style##mb15>
+                 <Button block=true success=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Success")) </Text>
                  </Button>
-                 <Button
-                   rounded=true warning=true style=GlobalStyle.style##mb15>
+                 <Button block=true warning=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Warning")) </Text>
                  </Button>
-                 <Button
-                   rounded=true danger=true style=GlobalStyle.style##mb15>
+                 <Button block=true danger=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Danger")) </Text>
                  </Button>
-                 <Button rounded=true dark=true style=GlobalStyle.style##mb15>
+                 <Button block=true dark=true style=GlobalStyle.style##mb15>
                    <Text> (ReasonReact.string("Dark")) </Text>
                  </Button>
                </Content>

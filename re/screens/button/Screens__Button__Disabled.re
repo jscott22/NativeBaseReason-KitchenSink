@@ -6,7 +6,7 @@ open BsNativeBase;
 
 module Button = BsNativeBase.Button;
 
-let component = ReasonReact.statelessComponent("ButtonRounded");
+let component = ReasonReact.statelessComponent("ButtonDisabled");
 
 let make = (~navigation: StackNavigator.navigation, _children) => {
   ...component,
@@ -23,7 +23,7 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
                    </Button>
                  </Left>
                  <Body>
-                   <Title> (ReasonReact.string("Rounded")) </Title>
+                   <Title> (ReasonReact.string("Disabled")) </Title>
                  </Body>
                  <Right />
                </Header>
@@ -35,30 +35,32 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
                            padding(Pt(20.)),
                          ])
                        )>
-                 <Button rounded=true light=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Light")) </Text>
-                 </Button>
-                 <Button rounded=true info=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Info")) </Text>
+                 <Button disabled=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Default")) </Text>
                  </Button>
                  <Button
-                   rounded=true primary=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Primary")) </Text>
+                   disabled=true bordered=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Outline")) </Text>
                  </Button>
                  <Button
-                   rounded=true success=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Success")) </Text>
+                   disabled=true rounded=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Rounded")) </Text>
                  </Button>
                  <Button
-                   rounded=true warning=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Warning")) </Text>
+                   disabled=true large=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Custom")) </Text>
                  </Button>
                  <Button
-                   rounded=true danger=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Danger")) </Text>
+                   disabled=true iconRight=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Icon Button")) </Text>
+                   <Icon name="home" />
                  </Button>
-                 <Button rounded=true dark=true style=GlobalStyle.style##mb15>
-                   <Text> (ReasonReact.string("Dark")) </Text>
+                 <Button
+                   disabled=true block=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Block")) </Text>
+                 </Button>
+                 <Button disabled=true full=true style=GlobalStyle.style##mb15>
+                   <Text> (ReasonReact.string("Full")) </Text>
                  </Button>
                </Content>
              </Container>

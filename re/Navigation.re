@@ -8,6 +8,12 @@ module Route = {
     | ButtonDefault
     | ButtonOutline
     | ButtonRounded
+    | ButtonBlock
+    | ButtonFull
+    | ButtonCustomSize
+    | ButtonIcon
+    | ButtonTransparent
+    | ButtonDisabled
     | NHCard
     | NHCheckbox
     | NHFab

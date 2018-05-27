@@ -78,8 +78,17 @@ module Main = {
                        <Screens.ButtonOutline navigation />
                      | Route.ButtonDefault =>
                        <Screens.ButtonDefault navigation />
+                     | Route.ButtonBlock => <Screens.ButtonBlock navigation />
                      | Route.ButtonRounded =>
                        <Screens.ButtonRounded navigation />
+                     | Route.ButtonCustomSize =>
+                       <Screens.ButtonCustomSize navigation />
+                     | Route.ButtonFull => <Screens.ButtonFull navigation />
+                     | Route.ButtonIcon => <Screens.ButtonIcon navigation />
+                     | Route.ButtonTransparent =>
+                       <Screens.ButtonTransparent navigation />
+                     | Route.ButtonDisabled =>
+                       <Screens.ButtonDisabled navigation />
                      | Route.NHCard =>
                        <Screens.NHCard
                          navigation

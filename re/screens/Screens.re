@@ -49,3 +49,15 @@ module ButtonDefault = Screens__Button__Default;
 module ButtonOutline = Screens__Button__Outline;
 
 module ButtonRounded = Screens__Button__Rounded;
+
+module ButtonBlock = Screens__Button__Block;
+
+module ButtonCustomSize = Screens__Button__CustomSize;
+
+module ButtonFull = Screens__Button__Full;
+
+module ButtonIcon = Screens__Button__Icon;
+
+module ButtonTransparent = Screens__Button__Transparent;
+
+module ButtonDisabled = Screens__Button__Disabled;

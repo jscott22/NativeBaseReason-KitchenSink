@@ -23,7 +23,7 @@ let make = (~navigation: StackNavigator.navigation, _children) => {
                    </Button>
                  </Left>
                  <Body>
-                   <Title> (ReasonReact.string("Default")) </Title>
+                   <Title> (ReasonReact.string("Outline")) </Title>
                  </Body>
                  <Right />
                </Header>

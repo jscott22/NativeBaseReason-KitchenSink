@@ -11,6 +11,12 @@ let routeData = [|
   {route: Route.ButtonDefault, text: "Default Button"},
   {route: Route.ButtonOutline, text: "Outline Button"},
   {route: Route.ButtonRounded, text: "Rounded Button"},
+  {route: Route.ButtonBlock, text: "Block Button"},
+  {route: Route.ButtonFull, text: "Full Button"},
+  {route: Route.ButtonCustomSize, text: "Custom Size Button"},
+  {route: Route.ButtonTransparent, text: "Transparent Button"},
+  {route: Route.ButtonIcon, text: "Icon Button"},
+  {route: Route.ButtonDisabled, text: "Disabled Button"},
 |];
 
 let component = ReasonReact.statelessComponent("ButtonLanding");
@@ -20,8 +26,7 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
   render: _self =>
     <StackNavigator.Screen navigation>
       ...(
-           () => {
-             Js.log("here2");
+           () =>
              BsNativeBase.(
                <Container
                  style=Style.(style([backgroundColor(String("#FFF"))]))>
@@ -58,8 +63,7 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
                    />
                  </Content>
                </Container>
-             );
-           }
+             )
          )
     </StackNavigator.Screen>,
 };
