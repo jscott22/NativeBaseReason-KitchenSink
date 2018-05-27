@@ -14,37 +14,45 @@ let component = ReasonReact.statelessComponent("NHButton");
 let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) => {
   ...component,
   render: _self =>
-    <StackNavigator.Screen
-      navigation
-      headerTitle="NHButton"
-      headerLeft=(
-        (_headerProps: Header.props) =>
-          BsNativeBase.(
-            <Button transparent=true onPress=toggleDrawer>
-              <Icon iconType=Ionicons name="ios-menu" />
-            </Button>
-          )
-      )>
+    <StackNavigator.Screen navigation>
       ...(
            () =>
              BsNativeBase.(
-               <Content>
-                 <ListView
-                   dataArray=routeData
-                   renderRow=(
-                     data =>
-                       <ListItem
-                         button=true
-                         onPress=(() => {
-                           navigation.push(data.route);
-                         })>
-                         <Left>
-                           <Text> (ReasonReact.string(data.text)) </Text>
-                         </Left>
-                       </ListItem>
-                   )
-                 />
-               </Content>
+               <Container
+                 style=Style.(style([backgroundColor(String("#FFF"))]))>
+                 <Header>
+                   <Left>
+                     <Button transparent=true onPress=(() => toggleDrawer())>
+                       <Icon name="menu" />
+                     </Button>
+                   </Left>
+                   <Body>
+                     <Title> (ReasonReact.string("Buttons")) </Title>
+                   </Body>
+                   <Right />
+                 </Header>
+                 <Content>
+                   <ListView
+                     dataArray=routeData
+                     renderRow=(
+                       data =>
+                         <ListItem
+                           button=true
+                           onPress=(() => navigation.push(data.route))>
+                           <Left>
+                             <Text> (ReasonReact.string(data.text)) </Text>
+                           </Left>
+                           <Right>
+                             <Icon
+                               name="arrow-forward"
+                               style=Style.(style([color(String("#999"))]))
+                             />
+                           </Right>
+                         </ListItem>
+                     )
+                   />
+                 </Content>
+               </Container>
              )
          )
     </StackNavigator.Screen>,
