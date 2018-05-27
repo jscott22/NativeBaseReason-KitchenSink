@@ -1397,15 +1397,15 @@ browser-resolve@^1.11.2:
 
 bs-native-base@jscott22/bs-native-base#master:
   version "0.1.1"
-  resolved "https://codeload.github.com/jscott22/bs-native-base/tar.gz/924313feb1fefb4c4af8b79fbeb034a0c4d926db"
+  resolved "https://codeload.github.com/jscott22/bs-native-base/tar.gz/7796ade4d79c3f08e19429f0a6c150143bc015a9"
 
 bs-platform@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-3.0.0.tgz#38f200730db52fdea37819376b6ac3dfb20244c0"
 
 bs-react-native@^0.7.0-beta:
-  version "0.7.0-beta1"
-  resolved "https://registry.yarnpkg.com/bs-react-native/-/bs-react-native-0.7.0-beta1.tgz#901cd6b3860c353a2ce91c35b451559149643232"
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/bs-react-native/-/bs-react-native-0.7.0.tgz#1105177816273e575f5b84c00827b772fd86b056"
 
 bser@^2.0.0:
   version "2.0.0"

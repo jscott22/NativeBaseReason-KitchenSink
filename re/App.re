@@ -20,14 +20,12 @@ module Main = {
   let make = _children => {
     ...component,
     initialState: () => {drawerOpen: false},
-    reducer: (action, state) => {
-      Js.log((action, state));
+    reducer: (action, state) =>
       switch (action) {
       | ShowDrawer => ReasonReact.Update({drawerOpen: true})
       | HideDrawer => ReasonReact.Update({drawerOpen: false})
       | ToggleDrawer => ReasonReact.Update({drawerOpen: ! state.drawerOpen})
-      };
-    },
+      },
     render: self =>
       <BsNativeBase.StyleProvider style=(getTheme(variables))>
         <StackNavigator
@@ -71,11 +69,17 @@ module Main = {
                          navigation
                          toggleDrawer=(() => self.send(ToggleDrawer))
                        />
-                     | Route.NHButton =>
-                       <Screens.NHButton
+                     | Route.Button =>
+                       <Screens.Button
                          navigation
                          toggleDrawer=(() => self.send(ToggleDrawer))
                        />
+                     | Route.ButtonOutline =>
+                       <Screens.ButtonOutline navigation />
+                     | Route.ButtonDefault =>
+                       <Screens.ButtonDefault navigation />
+                     | Route.ButtonRounded =>
+                       <Screens.ButtonRounded navigation />
                      | Route.NHCard =>
                        <Screens.NHCard
                          navigation
@@ -161,9 +165,6 @@ module Main = {
                          navigation
                          toggleDrawer=(() => self.send(ToggleDrawer))
                        />
-                     | Route.ButtonDefault =>
-                       Js.log("Here");
-                       <Screens.ButtonDefault navigation />;
                      }
                    )
                  </BsNativeBase.Drawer>

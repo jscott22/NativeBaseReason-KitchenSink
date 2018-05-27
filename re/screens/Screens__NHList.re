@@ -12,12 +12,12 @@ let make = (~navigation, ~toggleDrawer, _children) => {
       headerTitle="NHList"
       headerLeft=(
         (_headerProps: Header.props) =>
-          <BsNativeBase.Button transparent=true onPress=toggleDrawer>
-            <BsNativeBase.Icon iconType=Ionicons name="ios-menu" />
-          </BsNativeBase.Button>
+          BsNativeBase.(
+            <Button transparent=true onPress=toggleDrawer>
+              <Icon iconType=Ionicons name="ios-menu" />
+            </Button>
+          )
       )>
-      ...(
-           () => <View> <Text> (ReasonReact.string("NHList")) </Text> </View>
-         )
+      ...(() => <View> <Text> (ReasonReact.string("NHList")) </Text> </View>)
     </StackNavigator.Screen>,
 };

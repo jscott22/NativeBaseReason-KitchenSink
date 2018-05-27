@@ -8,7 +8,7 @@ module Footer = Screens__Footer;
 
 module NHBadge = Screens__NHBadge;
 
-module NHButton = Screens__NHButton;
+module Button = Screens__Button;
 
 module NHCard = Screens__NHCard;
 
@@ -45,3 +45,7 @@ module NHToast = Screens__NHToast;
 module NHTypography = Screens__NHTypography;
 
 module ButtonDefault = Screens__Button__Default;
+
+module ButtonOutline = Screens__Button__Outline;
+
+module ButtonRounded = Screens__Button__Rounded;

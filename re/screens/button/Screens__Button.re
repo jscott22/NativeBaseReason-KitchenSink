@@ -7,16 +7,21 @@ type route = {
   text: string,
 };
 
-let routeData = [|{route: Route.ButtonDefault, text: "Default Button"}|];
+let routeData = [|
+  {route: Route.ButtonDefault, text: "Default Button"},
+  {route: Route.ButtonOutline, text: "Outline Button"},
+  {route: Route.ButtonRounded, text: "Rounded Button"},
+|];
 
-let component = ReasonReact.statelessComponent("NHButton");
+let component = ReasonReact.statelessComponent("ButtonLanding");
 
 let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) => {
   ...component,
   render: _self =>
     <StackNavigator.Screen navigation>
       ...(
-           () =>
+           () => {
+             Js.log("here2");
              BsNativeBase.(
                <Container
                  style=Style.(style([backgroundColor(String("#FFF"))]))>
@@ -53,7 +58,8 @@ let make = (~navigation: StackNavigator.navigation, ~toggleDrawer, _children) =>
                    />
                  </Content>
                </Container>
-             )
+             );
+           }
          )
     </StackNavigator.Screen>,
 };

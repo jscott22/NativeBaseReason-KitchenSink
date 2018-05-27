@@ -4,7 +4,10 @@ module Route = {
     | Header
     | Footer
     | NHBadge
-    | NHButton
+    | Button
+    | ButtonDefault
+    | ButtonOutline
+    | ButtonRounded
     | NHCard
     | NHCheckbox
     | NHFab
@@ -22,8 +25,7 @@ module Route = {
     | NHThumbnail
     | NHToast
     | NHTypography
-    | Welcome
-    | ButtonDefault;
+    | Welcome;
 };
 
 include ReRoute.CreateNavigation(Route);

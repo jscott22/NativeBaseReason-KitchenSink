@@ -76,7 +76,7 @@ let dataArray = [|
   },
   {
     name: "Button",
-    route: Route.NHButton,
+    route: Route.Button,
     icon: "radio-button-off",
     bg: "#1EBC7C",
     types: Some("9"),
